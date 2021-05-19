@@ -1,10 +1,9 @@
 var dataSamples = d3.json("samples.json").then((incomingData) => {
-    return incomingData
+    function notNull(entry) {
+        return entry.names != 0;
+    }
 })
 
+var allData = incomingData.filter(notNull);
 
-//var trace1 = {
-    //x: names.map(row => row.name)
-//}
-
-console.log(dataSamples.data)
+console.log(allData);
